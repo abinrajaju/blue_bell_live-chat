@@ -1,5 +1,5 @@
-import { generateToken } from "../llib/util"
-import User from "../models/user_model"
+import { generateToken } from "../lib/util.js"
+import User from "../models/user_model.js"
 import bcrypt from "bcryptjs"
 
 
