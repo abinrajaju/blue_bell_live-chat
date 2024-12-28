@@ -4,14 +4,18 @@ import messageRoute from "./src/routes/message.route.js"
 import dotenv from 'dotenv'
 import { connectDB } from "./src/lib/db.js"
 import cookieParser from "cookie-parser"
-
+import cors from "cors"
 
 
 dotenv.config()
 const app= express()
 const PORT =process.env.PORT||5001
-app.use(cookieParser())
+app.use(cookieParser());
 app.use(express.json());
+app.use(cors({
+    origin:"http://localhost:5173",
+    credentials:true
+}))
 
 connectDB()
 
@@ -27,24 +31,3 @@ app.listen(PORT, ()=>{
     
 })
 
-// import express from "express"
-// const app = express();
-
-// // Middleware to parse JSON
-// app.use(express.json());
-
-// // Example route
-// app.post('/signup', (req, res) => {
-//     console.log(req.body);  // Debugging to check if data is received
-//     const { name, email, password } = req.body;
-    
-//     if (!name || !email || !password) {
-//         return res.status(400).send('Missing required fields');
-//     }
-//     res.status(200).send('User data received');
-// });
-
-// // Start the server
-// app.listen(5000, () => {
-//     console.log('Server is running on port 5000');
-// });
