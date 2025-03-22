@@ -3,10 +3,11 @@ import { useAuthStore } from '../store/useAuthStore';
 import { Camera,Mail,User } from 'lucide-react';
 const ProfilePage = () => {
 
-  console.log('reloded');
+ 
   
     const {authUser,isUpdatingProfile,updateProfile}= useAuthStore()
     const [selectedImg, setSelectedImg] = useState(null);
+console.log(authUser,'ppppppp');
 
     const handleImageUpload=async(e)=>{
       const file= e.target.files[0]

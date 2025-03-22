@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Users } from 'lucide-react';
 const SidebarSkeleton = () => {
     const skeletonContacts = Array(8).fill(null);
 
