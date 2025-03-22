@@ -17,7 +17,10 @@ const userInSidebar=async(req,res)=>{
 
 const getMessage=async(req,res)=>{
     try {
+        
         const {id:userToChatId}= req.params
+        console.log("Sender ID received:", userToChatId);
+
         const senderId=req.user._id;
         const messages = await Message.find({
             $or:[{senderId:senderId,receiverId:userToChatId},

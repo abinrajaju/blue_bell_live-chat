@@ -92,7 +92,7 @@ try {
           if(!profilePic){
             return res.status(400).json({message:"profile pic is required"})
           }
-          const uplodeResponse= await cloudinary.uploader.uplode(profilePic)
+          const uplodeResponse= await cloudinary.uploader.upload(profilePic)
           const updateUser= await User.findByIdAndUpdate(userId,{profilePic:uplodeResponse.secure_url},{new:true})
           res.status(200).json(updateUser)
 } catch (error) {

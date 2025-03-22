@@ -5,7 +5,7 @@ const router= express.Router();
 
 
 
-router.get("useres",protectRoute,userInSidebar)
+router.get("/users",protectRoute,userInSidebar)
 router.get("/:id",protectRoute,getMessage)
 router.post("/send/:id",protectRoute,sendMessage)
 
