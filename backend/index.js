@@ -5,10 +5,10 @@ import dotenv from 'dotenv'
 import { connectDB } from "./src/lib/db.js"
 import cookieParser from "cookie-parser"
 import cors from "cors"
-
+import { app,io,server } from "./src/lib/socket.js"
 
 dotenv.config()
-const app= express()
+
 const PORT =process.env.PORT||5001
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
@@ -28,7 +28,7 @@ connectDB()
 
 app.use("/auth",authRoute)
 app.use("/messages",messageRoute)
-app.listen(PORT, ()=>{
+server.listen(PORT, ()=>{
     console.log('running in'+PORT);
     
 })

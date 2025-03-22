@@ -62,7 +62,7 @@ const signup= async(req,res)=>{
     res.status(200).json({
         _id:user._id,
         name:user.name,
-        email:user.password,
+        email:user.email,
         profilePic:user.profilePic
 
     })
